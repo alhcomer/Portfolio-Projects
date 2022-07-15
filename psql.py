@@ -1,10 +1,10 @@
-from re import sub
 from psycopg2 import sql, Error
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT # <-- ADD THIS LINE
 import psycopg2
 import os
 from dotenv import load_dotenv
 from sqlalchemy import table
+from datetime import datetime, timezone
 
 load_dotenv()
 
@@ -29,11 +29,14 @@ def insert_table_data():
     title = "creating blog"
     subtitle = "this is another string"
     body = "this is the body of the blog"
+    dt = datetime.now(timezone.utc)
     img_url = r"https://upload.wikimedia.org/wikipedia/commons/8/80/Equus_asinus_Kadzid%C5%82owo_001.jpg"
-    query = f'''INSERT INTO blog_posts (title, subtitle, body, img_url)
-    VALUES ({title}, {subtitle}, {body}, {img_url})'''
-
-    cursor.execute(query)
+    query = '''INSERT INTO blog_posts (title, subtitle, body, created_on, img_url)
+    VALUES (%s, %s, %s, %s, %s) RETURNING id;'''
+    
+    cursor.execute(query, (title, subtitle, body, dt, img_url))
+    
+    
 
 
 # BASE 
@@ -76,7 +79,7 @@ try:
     # cursor.execute(sql)
     # print("Database has been created successfully !!");
     
-except [Exception, Error] as error:
+except Error as error:
     print("Error while connecting to PSQL", error)
 
 finally: 
@@ -84,3 +87,37 @@ finally:
     cursor.close()
     conn.close()
     print("PSQL connection is closed")
+
+
+#FUNCTION TO GET RECORDS IN MAIN.PY
+def get_records(table_name):
+    try:
+        conn = psycopg2.connect(
+            database="my_blog",
+            user='postgres',
+            password=os.getenv('PSQL_PASSWORD'),
+            host='localhost',
+            port= '5432'
+        )
+        conn.autocommit = True
+    
+        # Creating a cursor object
+        cursor = conn.cursor()
+
+        # PLACE DESIRED INTERACTION WITH DATABASE BELOW
+        query = f'''SELECT * FROM {table_name}'''
+        cursor.execute(query)
+        result = cursor.fetchall()
+        return result
+
+        # COMMIT CHANGES
+        conn.commit()
+
+    except Error as error:
+        print("Error while connecting to PSQL", error)
+
+    finally: 
+        # CLOSE CONNECTION
+        cursor.close()
+        conn.close()
+        print("PSQL connection is closed")

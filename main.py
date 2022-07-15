@@ -6,6 +6,7 @@ from sqlalchemy import create_engine
 from sqlalchemy_utils import database_exists, create_database
 import psycopg2
 from dotenv import load_dotenv
+from psql import get_records
 
 load_dotenv()
 
@@ -17,7 +18,9 @@ app.config['SECRET_KEY'] = os.environ.get('APP_SECRET_KEY')
 # CONFIGUE ROUTING FOR PAGES
 @app.route('/')
 def home():
-    return render_template('index.html')
+    blog_records = get_records("blog_posts")
+    portfolio_records = get_records("portfolio_posts")
+    return render_template('index.html', blog_records=blog_records, portfolio_records=portfolio_records)
 
 @app.route('/blog-post/<int:post_id>')
 def show_post(post_id):
