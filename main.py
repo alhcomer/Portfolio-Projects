@@ -15,8 +15,8 @@ psql = PostgresManager()
 @app.route('/')
 def home():
     blog_records = psql.get_records("blog_posts")
-    print(blog_records)
     portfolio_records = psql.get_records("portfolio_posts")
+    print(portfolio_records)
     return render_template('index.html', blog_records=blog_records, portfolio_records=portfolio_records)
 
 @app.route('/blog-post/<int:post_id>')

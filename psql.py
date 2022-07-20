@@ -59,9 +59,10 @@ class PostgresManager:
             body = "body of the first blog"
             dt = datetime.now(timezone.utc)
             img_url = r"https://upload.wikimedia.org/wikipedia/commons/8/80/Equus_asinus_Kadzid%C5%82owo_001.jpg"
-            query = '''INSERT INTO blog_posts (title, subtitle, body, created_on, img_url)
-            VALUES (%s, %s, %s, %s, %s) RETURNING id;'''
-            self.cursor.execute(query, (title, subtitle, body, dt, img_url))
+            github_url = "https://github.com/alhcomer"
+            query = '''INSERT INTO portfolio_posts (title, subtitle, body, created_on, img_url, github_url)
+            VALUES (%s, %s, %s, %s, %s, %s) RETURNING id;'''
+            self.cursor.execute(query, (title, subtitle, body, dt, img_url, github_url))
 
         except Error as error:
             print("Error while connecting to PSQL", error)
@@ -82,5 +83,4 @@ class PostgresManager:
 
         finally:
             self.close_connection()
-
 

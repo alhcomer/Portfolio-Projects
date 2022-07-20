@@ -125,45 +125,21 @@
                  Here is some work I've done in various programming languages.
             </p>
             <div class="portfolios">
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="images/portfolio2.png" alt="Portfolio Item Should be Here">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Project Source</h3>
-                        <div class="icons">
-                            <a href="www.google.com" target="_blank" class="icon">
-                                <i class="fa-brands fa-github"></i>
-                            </a>
+                {% for post in portfolio_records %}
+                    <div class="portfolio-item">
+                        <div class="image">
+                            <img src="images/portfolio2.png" alt="Portfolio Item Should be Here">
+                        </div>
+                        <div class="hover-items">
+                            <h3>Project Source</h3>
+                            <div class="icons">
+                                <a href="www.google.com" target="_blank" class="icon">
+                                    <i class="fa-brands fa-github"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="images/portfolio2.png" alt="Portfolio Item Should be Here">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Project Source</h3>
-                        <div class="icons">
-                            <a href="www.google.com" target="_blank" class="icon">
-                                <i class="fa-brands fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="images/portfolio2.png" alt="Portfolio Item Should be Here">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Project Source</h3>
-                        <div class="icons">
-                            <a href="www.google.com" target="_blank" class="icon">
-                                <i class="fa-brands fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </section>
         <section class="section sec4" id="blogs">
@@ -177,8 +153,8 @@
                     <div class="blog">
                         <img src="{{ blog[5] }}" alt="">
                         <div class="blog-text">
-                            <h4>How to create your own blog</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <h4>{{ blog[1] }}</h4>
+                            <p>{{ blog[2] }}</p>
 
                         </div>
                     </div>
