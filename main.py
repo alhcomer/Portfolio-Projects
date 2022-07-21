@@ -20,11 +20,22 @@ def home():
     return render_template('index.html', blog_records=blog_records, portfolio_records=portfolio_records)
 
 @app.route('/blog-post/<int:post_id>')
-def show_post(post_id):
-    pass
-    # requested_post = BlogPost.query.get(post_id)
-    # if request.method == 'GET':
-    #     pass
+def show_blog(post_id):
+    blog_records = psql.get_records("blog_posts")
+    blog_post = None
+    for blog in blog_records:
+        if blog[0] == post_id:
+            blog_post = blog
+    return render_template('blog-post.html', blog_post=blog_post)
+
+@app.route('/portfolio-post/<int:post_id>')
+def show_portfolio(post_id):
+    portfolio_records = psql.get_records("portfolio_posts")
+    portfolio_post = None
+    for record in portfolio_records:
+        if record[0] == post_id:
+            portfolio_post = record
+    return render_template('portfolio-post.html', portfolio_post=portfolio_post)
 
 
 # RUN COMMAND

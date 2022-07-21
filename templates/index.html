@@ -153,7 +153,7 @@
                     <div class="blog">
                         <img src="{{ blog[5] }}" alt="">
                         <div class="blog-text">
-                            <h4>{{ blog[1] }}</h4>
+                            <h4><a href="{{ url_for('show_blog', post_id = blog[0]) }}">{{ blog[1] }}</a></h4>
                             <p>{{ blog[2] }}</p>
 
                         </div>
@@ -171,34 +171,34 @@
                 <div class="contact-content-con">
                     <div class="left-contact">
                         <h4>Contact Me Here</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at imperdiet eros. Nunc a turpis eu massa tempor molestie. Vestibulum ac ultricies nisi.</p>
+                        <p>Thanks for taking a look at my site! If you would like to get in touch my contact details are below. Alternatively, you can email me using the contact form also below. </p>
                         <div class="contact-info">
                             <div class="contact-item">
                                 <div class="icon">
                                     <i class="fa-solid fa-map-pin"></i>
-                                    Location
+                                    Location:
                                 </div>
                                 <p>
-                                    : Manchester, United Kingdom
+                                Manchester, United Kingdom
                                 </p>
                             </div>
                             <div class="contact-item">
                                 <div class="icon">
                                     <i class="fa-solid fa-map-pin"></i>
-                                    Email
+                                    Email:
                                 </div>
                                 <p>
-                                    : alhcomer@hotmail.co.uk
+                                alhcomer@hotmail.co.uk
                                 </p>
                                 
                             </div>
                             <div class="contact-item">
                                 <div class="icon">
                                     <i class="fa-solid fa-map-pin"></i>
-                                    Contact Number
+                                    Contact Number:
                                 </div>
                                 <p>
-                                    : +447341289369
+                                +447341289369
                                 </p>
                             </div>
                         </div>
