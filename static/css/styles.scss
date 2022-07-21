@@ -722,6 +722,17 @@ section{
     }
 }
 
+.post-subtitle{
+    text-align: center;
+    h4{
+        position: relative;
+        text-transform: capitalize;
+        font-size: 2rem;
+        font-weight: 400;
+    }
+}
+
+
 
 @import './media'
 
