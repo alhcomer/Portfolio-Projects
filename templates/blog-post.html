@@ -21,10 +21,10 @@
         <p>Written by Aidan Comer. <i>Published on {{ blog_post[4].strftime("%d:%m:%Y, %H:%M") }}.</i></p>
     </div>
     <div class="post-image">
-
+        <img src="{{ blog_post[5] }}" alt="">
     </div>
-    <div class="text-body">
-
+    <div class="post-body">
+        <p>{{ blog_post[3] }}</p>
     </div>
 
 
@@ -37,19 +37,19 @@
 
         <!-- NEED TO ADD FUNCTIONALITY TO INCLUDE ALL BUTTONS ON PAGE -->
         <!-- <div class="control control1-2" data-id="about">
-            <a href="{{ url_for('home') )}}"><i class="fa-solid fa-user"></i></a>
+            <a href="{{ url_for('home') }}"><i class="fa-solid fa-user"></i></a>
         </div>
 
         <div class="control control1-3" data-id="portfolio">
-            <a href="{{ url_for('home') )}}"><i class="fa-solid fa-laptop-file"></i></a>
+            <a href="{{ url_for('home') }}"><i class="fa-solid fa-laptop-file"></i></a>
         </div>
 
         <div class="control control1-4" data-id="blogs">
-            <a href="{{ url_for('home') )}}"><i class="fa-solid fa-newspaper"></i></a><i class="fa-solid fa-newspaper"></i>
+            <a href="{{ url_for('home') }}"><i class="fa-solid fa-newspaper"></i></a><i class="fa-solid fa-newspaper"></i>
         </div>
 
         <div class="control control1-5" data-id="contact">
-            <a href="{{ url_for('home') )}}"><i class="fa-solid fa-square-envelope"></i></a>
+            <a href="{{ url_for('home') }}"><i class="fa-solid fa-square-envelope"></i></a>
         </div> -->
     </div>
     <div class="theme-btn">

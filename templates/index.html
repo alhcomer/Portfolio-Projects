@@ -128,12 +128,12 @@
                 {% for post in portfolio_records %}
                     <div class="portfolio-item">
                         <div class="image">
-                            <img src="images/portfolio2.png" alt="Portfolio Item Should be Here">
+                            <img src="{{ post[5] }}" alt="Portfolio Item Should be Here">
                         </div>
                         <div class="hover-items">
-                            <h3>Project Source</h3>
+                            <h3>{{ post[1] }}</h3>
                             <div class="icons">
-                                <a href="www.google.com" target="_blank" class="icon">
+                                <a href="{{ post[6] }}" target="_blank" class="icon">
                                     <i class="fa-brands fa-github"></i>
                                 </a>
                             </div>

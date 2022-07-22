@@ -38,6 +38,11 @@ def show_portfolio(post_id):
     return render_template('portfolio-post.html', portfolio_post=portfolio_post)
 
 
+# NEED TO ADD CONTACT FORM FUNCTIONALITY
+@app.route('/process_email', methods=['POST'])
+def process_email():
+    pass
+
 # RUN COMMAND
 if __name__ == '__main__':
     app.run(debug=True)
