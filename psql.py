@@ -5,8 +5,19 @@ import os
 from dotenv import load_dotenv
 from sqlalchemy import table
 from datetime import datetime, timezone
+from sqlalchemy import create_engine, Table, Column, String, MetaData
+import urllib.parse
 
 load_dotenv()
+
+class PostgresManagerSQLAlchemy:
+    def __init__(self):
+        self.psql_password = urllib.parse.quote_plus(os.environ.get('PSQL_PASSWORD'))
+        self.db_string = f'postgresql://postgres:{self.psql_password}@localhost:5432/mydatabase'
+        self.engine = create_engine(self.db_string)
+
+
+
 
 class PostgresManager:
     def __init__(self):
@@ -83,4 +94,6 @@ class PostgresManager:
 
         finally:
             self.close_connection()
+
+
 
