@@ -128,12 +128,12 @@
                 {% for post in portfolio_records %}
                     <div class="portfolio-item">
                         <div class="image">
-                            <img src="{{ post[5] }}" alt="Portfolio Item Should be Here">
+                            <img src="{{ post.img_url }}" alt="Portfolio Item Should be Here">
                         </div>
                         <div class="hover-items">
-                            <h3>{{ post[1] }}</h3>
+                            <h3>{{ post.title }}</h3>
                             <div class="icons">
-                                <a href="{{ post[6] }}" target="_blank" class="icon">
+                                <a href="{{ post.github_url }}" target="_blank" class="icon">
                                     <i class="fa-brands fa-github"></i>
                                 </a>
                             </div>
@@ -151,10 +151,10 @@
             <div class="blogs">
                 {% for blog in blog_records %}
                     <div class="blog">
-                        <img src="{{ blog[5] }}" alt="">
+                        <img src="{{ blog.img_url }}" alt="">
                         <div class="blog-text">
-                            <h4><a href="{{ url_for('show_blog', post_id = blog[0]) }}">{{ blog[1] }}</a></h4>
-                            <p>{{ blog[2] }}</p>
+                            <h4><a href="{{ url_for('show_blog', post_id=blog.id)  }}">{{ blog.title }}</a></h4>
+                            <p>{{ blog.subtitle }}</p>
 
                         </div>
                     </div>
