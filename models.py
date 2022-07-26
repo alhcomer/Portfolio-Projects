@@ -39,5 +39,6 @@ class Portfolio(Base):
     published = Column(DateTime(timezone=True), server_default=func.now())
     github_url = Column(String, nullable=False)
 
+
 engine = create_engine(database_uri)
 Base.metadata.create_all(engine)
