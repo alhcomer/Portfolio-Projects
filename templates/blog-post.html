@@ -12,19 +12,19 @@
 </head>
 <body class="main-content">
     <div class="main-title">
-        <h2>{{ blog_post[1] }}</h2>
+        <h2>{{ blog_post.title }}</h2>
     </div>
     <div class="post-subtitle">
-        <h4> {{ blog_post[2] }}</h4>
+        <h4> {{ blog_post.subtitle }}</h4>
     </div>
     <div class="name-date">
-        <p>Written by Aidan Comer. <i>Published on {{ blog_post[4].strftime("%d:%m:%Y, %H:%M") }}.</i></p>
+        <p>Written by Aidan Comer. <i>Published on {{ blog_post.published.strftime("%d:%m:%Y, %H:%M") }}.</i></p>
     </div>
     <div class="post-image">
-        <img src="{{ blog_post[5] }}" alt="">
+        <img src="{{ blog_post.img_url }}" alt="">
     </div>
     <div class="post-body">
-        <p>{{ blog_post[3] }}</p>
+        <p>{{ blog_post.body }}</p>
     </div>
 
 

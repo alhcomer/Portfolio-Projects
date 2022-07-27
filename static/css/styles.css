@@ -962,7 +962,7 @@ section {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   font-weight: 800;
-  font-size: 6.3rem;
+  font-size: 4.5rem;
 }
 
 .main-title {
@@ -972,7 +972,7 @@ section {
 .main-title h2 {
   position: relative;
   text-transform: uppercase;
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 700;
 }
 
@@ -990,8 +990,8 @@ section {
   z-index: -1;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  font-weight: 800;
-  font-size: 6.3rem;
+  font-weight: 700;
+  font-size: 4.5rem;
 }
 
 .post-subtitle {
