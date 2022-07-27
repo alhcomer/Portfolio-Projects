@@ -212,6 +212,18 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="right-contact">
+                        <form action="{{ url_for('home') }}" class="contact-form" method=post>
+                            {{ contact_form.name(class="input", placeholder="Your Name") }}
+                            {{ contact_form.email(class="input", placeholder="Your Email") }}
+                            {{ contact_form.subject(class="input", placeholder="Enter Subject") }}
+                            {{ contact_form.body(class="input", placeholder="Enter Message Here") }}
+                            {{ contact_form.submit }}
+                        </form>
+                    </div>
+
+
                     <div class="right-contact">
                         <form action="" class="contact-form">
                             <div class="input-control i-c-2">
