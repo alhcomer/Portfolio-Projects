@@ -215,11 +215,20 @@
 
                     <div class="right-contact">
                         <form action="{{ url_for('home') }}" class="contact-form" method=post>
-                            {{ contact_form.name(class="input", placeholder="Your Name") }}
-                            {{ contact_form.email(class="input", placeholder="Your Email") }}
-                            {{ contact_form.subject(class="input", placeholder="Enter Subject") }}
-                            {{ contact_form.body(class="input", placeholder="Enter Message Here") }}
-                            {{ contact_form.submit }}
+                            <div class="input-control i-c-2">
+                                {{ contact_form.name(class="input", placeholder="Your Name") }}
+                                {{ contact_form.email(class="input", placeholder="Your Email") }}
+                            </div>
+                            <div class="input-control">
+                                {{ contact_form.subject(class="input", placeholder="Enter Subject") }}
+                            </div>
+                            <div class="input-control">
+                                {{ contact_form.body(class="input", placeholder="Enter Message Here", 
+                                cols="15", rows="8") }}
+                            </div>
+                            <div class="submit-btn">
+                                {{ contact_form.submit(class="main-btn btn-text btn-icon") }}
+                            </div>
                         </form>
                     </div>
 
