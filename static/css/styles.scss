@@ -401,7 +401,7 @@ section{
 
 //PORTFOLIOS
 .port-text{
-    padding: 2rem 0;
+    margin-top: 3.5rem;
     text-align: center;
 
 }
@@ -621,11 +621,7 @@ section{
             :last-child{
                 margin-left: 1.5rem;
             }
-        }
-        .submit-btn{
-            display: flex;
-            justify-content: flex-start;
-        }
+        } 
     }
 }
 
@@ -759,6 +755,23 @@ section{
     }
 }
 
+.contact-intro{
+    text-align:justify
+}
+
+.submit-btn{
+    border-radius: 30px !important;
+    font-weight: 600 !important;
+    font-size: 1.1rem !important;
+    font-family: inherit !important;
+    padding: .8rem 1.1rem !important;
+    outline: none !important;
+    border: 1px solid var(--color-secondary);
+    background-color: var(--color-primary) !important;
+    width: 100% !important;
+    color: var(--color-white) !important;
+    cursor: pointer !important;
+}
 
 
 @import './media'

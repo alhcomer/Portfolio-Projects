@@ -119,8 +119,9 @@
         </section>
         <section class="section sec3" id="portfolio">
             <div class="main-title">
-                <h2>My <span>Portfolio</span><span class="My Work"></span></h2>
+                <h2>My <span>Portfolio</span><span class="bg-text">My Portfolio</span></h2>
             </div>
+            
             <p class="port-text">
                  Here is some work I've done in various programming languages.
             </p>
@@ -136,7 +137,9 @@
                                 <a href="{{ post.github_url }}" target="_blank" class="icon">
                                     <i class="fa-brands fa-github"></i>
                                 </a>
-                                <a href="{{ url_for('show_portfolio', post_id=post.id) }})"></a>
+                                <a href="{{ url_for('show_portfolio', post_id=post.id) }}" target="_blank" class="icon">
+                                    <i class="fa-regular fa-newspaper"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -171,7 +174,7 @@
                 </div>
                 <div class="contact-content-con">
                     <div class="left-contact">
-                        <p>Thanks for taking a look at my site! If you would like to get in touch my contact details are below. Alternatively, you can email me using the contact form also below. </p>
+                        <p class="contact-intro">Thanks for taking a look at my site! If you would like to get in touch my contact details are below. Alternatively, you can email me using the contact form also below. </p>
                         <div class="contact-info">
                             <div class="contact-item">
                                 <div class="icon">
@@ -227,34 +230,11 @@
                                 {{ contact_form.body(class="input", placeholder="Enter Message Here", 
                                 cols="15", rows="8") }}
                             </div>
-                            <div class="submit-btn">
-                                {{ contact_form.submit(class="main-btn btn-text btn-icon") }}
+                            <div class="btn-con">
+                                {{ contact_form.submit(class="submit-btn") }}
                             </div>
                         </form>
                     </div>
-
-
-                    <div class="right-contact">
-                        <form action="" class="contact-form">
-                            <div class="input-control i-c-2">
-                                <input type="text" required placeholder="Your Name">
-                                <input type="email" required placeholder="Your Email">
-                            </div>
-                            <div class="input-control">
-                                <input type="text" required placeholder="Enter Subject">
-                            </div>
-                            <div class="input-control">
-                            <textarea name="" id="" cols="15" rows="8"></textarea>
-                            </div>
-                            <div class="submit-btn">
-                                <a href="" class="main-btn">
-                                    <span class="btn-text">Download CV</span>
-                                    <span class="btn-icon"><i class="fa-solid fa-download"></i></span>
-                                </a>
-                            </div>
-                        </form>
-                    </div>
-                    
                 </div>
             </div>
         </section>
