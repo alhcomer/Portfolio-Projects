@@ -1,4 +1,3 @@
-from ast import Sub
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SubmitField
 from wtforms.validators import DataRequired, Email
@@ -9,5 +8,4 @@ class ContactForm(FlaskForm):
     email = StringField('Your Email', validators=[DataRequired(), Email()])
     subject = StringField('Enter Subject', validators=[DataRequired()])
     body = TextAreaField('Enter Message Here', validators=[DataRequired()])
-    # label_for_submit = Markup
     submit = SubmitField('Submit')

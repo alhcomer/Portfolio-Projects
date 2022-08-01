@@ -219,6 +219,7 @@
 
                     <div class="right-contact">
                         <form action="{{ url_for('home') }}" class="contact-form" method=post>
+                            {{ contact_form.csrf_token }}
                             <div class="input-control i-c-2">
                                 {{ contact_form.name(class="input", placeholder="Your Name") }}
                                 {{ contact_form.email(class="input", placeholder="Your Email") }}

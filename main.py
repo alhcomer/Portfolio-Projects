@@ -6,12 +6,15 @@ from dotenv import load_dotenv
 from crud import get_blog_posts, get_portfolio_posts
 from forms import ContactForm
 import pandas as pd
+from flask_wtf.csrf import CSRFProtect
 
 load_dotenv()
 
 # INITIALISE APPLICATION
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('APP_SECRET_KEY')
+csrf = CSRFProtect(app)
+csrf.init_app(app)
 
 # CONFIGUE ROUTING FOR PAGES
 @app.route('/', methods=['GET', 'POST'])
@@ -19,9 +22,9 @@ def home():
     contact_form = ContactForm()
     blog_records = get_blog_posts()
     portfolio_records = get_portfolio_posts()
-    if request.method == 'POST':
+    if request.method == 'POST' and contact_form.validate_on_submit():
         name = request.form["name"]
-        email = request.form["email"]
+        email = request.form["email"] 
         subject = request.form["subject"]
         body = request.form["body"]
         res = pd.DataFrame({"name": name, "email": email, "subject": subject, "body": body}, index=[0])
