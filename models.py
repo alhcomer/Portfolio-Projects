@@ -1,11 +1,6 @@
 from xmlrpc.client import DateTime
-from psycopg2 import sql, Error
-from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT # <-- ADD THIS LINE
-import psycopg2
-import os
 from dotenv import load_dotenv
 from sqlalchemy import Integer, table
-from datetime import datetime, timezone
 from sqlalchemy import create_engine, Table, Column, String, MetaData, DateTime
 import urllib.parse
 from sqlalchemy.ext.declarative import declarative_base

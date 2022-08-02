@@ -2,19 +2,11 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from config import database_uri
 from models import Base, Blog, Portfolio
-from datetime import datetime
 
 
 def recreate_db():
     Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
-
-
-engine = create_engine(database_uri)
-
-Base.metadata.create_all(engine)
-
-Session = sessionmaker(bind=engine)
 
 
 def create_blog_post():
@@ -56,3 +48,10 @@ def get_portfolio_posts():
     blog_posts = s.query(Portfolio).all()
     s.close()
     return blog_posts
+
+
+engine = create_engine(database_uri)
+
+Base.metadata.create_all(engine)
+
+Session = sessionmaker(bind=engine)
