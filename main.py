@@ -1,4 +1,3 @@
-from msilib.schema import Error
 from flask import Flask, render_template, url_for, request
 import os
 from dotenv import load_dotenv
@@ -34,7 +33,7 @@ def home():
             {"name": name, "email": email, "subject": subject, "body": body}, index=[0]
         )
         res.to_csv("./contactmeMessage")
-        
+
     return render_template(
         "index.html",
         blog_records=blog_records,
