@@ -1,4 +1,3 @@
-from email import message
 from msilib.schema import Error
 from flask import Flask, render_template, url_for, request
 import os
@@ -7,7 +6,6 @@ from crud import get_blog_posts, get_portfolio_posts
 from forms import ContactForm
 import pandas as pd
 from flask_wtf.csrf import CSRFProtect
-import requests
 from blog_requests import get_contribution_count
 
 load_dotenv()
@@ -25,6 +23,7 @@ def home():
     blog_records = get_blog_posts()
     portfolio_records = get_portfolio_posts()
     github_contributions = get_contribution_count()
+
     if request.method == "POST" and contact_form.validate_on_submit():
         # check if above request.method == post is necessary
         name = request.form["name"]
@@ -35,6 +34,7 @@ def home():
             {"name": name, "email": email, "subject": subject, "body": body}, index=[0]
         )
         res.to_csv("./contactmeMessage")
+        
     return render_template(
         "index.html",
         blog_records=blog_records,
