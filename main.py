@@ -7,6 +7,8 @@ from crud import get_blog_posts, get_portfolio_posts
 from forms import ContactForm
 import pandas as pd
 from flask_wtf.csrf import CSRFProtect
+import requests
+from blog_requests import get_contribution_count
 
 load_dotenv()
 
@@ -22,6 +24,7 @@ def home():
     contact_form = ContactForm()
     blog_records = get_blog_posts()
     portfolio_records = get_portfolio_posts()
+    github_contributions = get_contribution_count()
     if request.method == "POST" and contact_form.validate_on_submit():
         # check if above request.method == post is necessary
         name = request.form["name"]
@@ -37,6 +40,7 @@ def home():
         blog_records=blog_records,
         portfolio_records=portfolio_records,
         contact_form=contact_form,
+        github_contributions=github_contributions
     )
 
 @app.route("/blog-post/<int:post_id>")
